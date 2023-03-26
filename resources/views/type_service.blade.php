@@ -1,7 +1,15 @@
 @extends('layouts.app')
 
-@section('title', 'Tipo Servicios')
-
+@section('title', $servicio->titulo)
+@section('styles')
+<style>
+    @media only screen and (max-width: 600px) {
+        #subheader h1 {
+            font-size: 32px;
+        }
+    }
+</style>
+@endsection
 @section('content')
 
 <!-- subheader -->
@@ -22,24 +30,13 @@
                 <div class="de-content-overlay">
                     <div class="d-carousel wow fadeInRight" data-wow-delay="2s">
                         <div id="carousel-rooms" class="owl-carousel owl-theme">
-
+                            @foreach($imagenes as $imagen)
                             <div class="item">
                                 <div class="picframe">
-                                    <a class="image-popup-gallery" href="{{asset('images/room-single/pf%20(1).jpg')}}">
-                                        <span class="overlay">
-                                            <span class="pf_title">
-                                                <i class="icon_search"></i>
-                                            </span>
-                                            <span class="pf_caption">
-                                                King size bed
-                                            </span>
-                                        </span>
-                                    </a>
-
-                                    <img src="{{asset('images/room-single/pf%20(1).jpg')}}" alt="">
+                                    <img src="{{asset($imagen->url)}}" alt="" height="100vh">
                                 </div>
                             </div>
-
+                            @endforeach
                         </div>
 
                         <div class="d-arrow-left mod-a"><i class="fa fa-angle-left"></i></div>

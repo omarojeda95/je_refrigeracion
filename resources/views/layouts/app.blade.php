@@ -6,30 +6,30 @@
     <title>JE Refrigeración | @yield('title')</title>
     <link rel="icon" href="{{asset('images/je/icon.png')}}" type="image/png" sizes="16x16">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
+    <meta name="description" content="Somos una empresa con más de 13 años de experiencia en el mercado agroindustrial, pesquero, lácteo, textil, panadero, laboratorios farmacéuticos.">
     <meta name="keywords" content="">
-    <meta name="author" content="">
+    <meta name="author" content="Omar Silva">
 
     <!-- 
         ==================================================    
         CSS Files
         ================================================== 
     -->
-    <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}" type="text/css" id="bootstrap">
-    <link rel="stylesheet" href="{{asset('css/plugins.css')}}" type="text/css">
-    <link rel="stylesheet" href="{{asset('css/style.css')}}" type="text/css">
-    <link rel="stylesheet" href="{{asset('css/color.css')}}" type="text/css">
-    <link rel="stylesheet" href="{{asset('css/wsp.css')}}" type="text/css">
-    <link rel="stylesheet" href="{{asset('fonts/font-awesome/css/font-awesome.css')}}" type="text/css">
+    <link rel="stylesheet" media="all" href="{{asset('css/bootstrap.min.css')}}" type="text/css" id="bootstrap">
+    <link rel="stylesheet" media="all" href="{{asset('css/plugins.css')}}" type="text/css">
+    <link rel="stylesheet" media="all" href="{{asset('css/style.css')}}" type="text/css">
+    <link rel="stylesheet" media="all" href="{{asset('css/color.css')}}" type="text/css">
+    <link rel="stylesheet" media="all" href="{{asset('css/wsp.css')}}" type="text/css">
+    <link rel="stylesheet" media="all" href="{{asset('fonts/font-awesome/css/font-awesome.css')}}" type="text/css">
 
     @yield('styles')
 
     <!-- color scheme -->
-    <link rel="stylesheet" href="css/colors/je.css" type="text/css" id="colors">
+    <link rel="stylesheet" media="all" href="css/colors/je.css" type="text/css" id="colors">
 </head>
 
 <body class="has-menu-bar">
-    <a href="https://wa.me/5211234567890?text=Me%20gustaría%20saber%20el%20precio%20del%20coche" class="whatsapp"
+    <a href="https://wa.me/51941822861?text=Me%20gustaría%20contactarme%20con%20un%20asesor%20de%20ventas" class="whatsapp"
         target="_blank"> <i class="fa fa-whatsapp whatsapp-icon"></i></a>
     <div id="wrapper">
         <!-- header begin -->
@@ -93,8 +93,8 @@
                                     Silva</a></span></div>
                         <div class="col-md-6 text-right">
                             <div class="social-icons">
-                                <a href="#"><i class="fa fa-facebook fa-lg"></i></a>
-                                <a href="#"><i class="fa fa-twitter fa-lg"></i></a>
+                                <a href="https://www.facebook.com/JERefrigeracionSAC"><i class="fa fa-facebook fa-lg"></i></a>
+                                <a href="#"><i class="fa fa-instagram fa-lg"></i></a>
                                 <a href="#"><i class="fa fa-rss fa-lg"></i></a>
                                 <a href="#"><i class="fa fa-google-plus fa-lg"></i></a>
                                 <a href="#"><i class="fa fa-skype fa-lg"></i></a>

@@ -10,9 +10,12 @@
 @endsection
 
 @section('scripts')
+<script src="{{asset('js/form.js')}}" async defer></script>
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 <script>
-    grecaptcha.execute();
+    function onSubmit(token) {
+      document.getElementById("send_message").submit();
+    }
 </script>
 @endsection
 
@@ -57,15 +60,16 @@
                                         <h3>Envíanos tu mensaje</h3>
                                     </div>
                                     <div class="col-md-6">
+                                        @csrf
                                         <div id='name_error' class='error'>Por favor ingresar nombre.</div>
                                         <div>
-                                            <input type='text' name='Name' id='name' class="form-control"
-                                                placeholder="Nombre" required>
+                                            <input type='text' name='name' id='name' class="form-control"
+                                                placeholder="Nombre" required autocomplete="off">
                                         </div>
 
                                         <div id='email_error' class='error'>Por favor ingresar un correo válido.</div>
                                         <div>
-                                            <input type='email' name='Email' id='email' class="form-control"
+                                            <input type='email' name='email' id='email' class="form-control"
                                                 placeholder="Correo" required>
                                         </div>
 
@@ -82,28 +86,36 @@
                                                 placeholder="Mensaje" required style="resize: none"></textarea>
                                         </div>
                                     </div>
-
                                     <div class="col-md-12">
-                                        <div class="g-recaptcha" data-sitekey="6LftRIEUAAAAAJD7HKF6zg8fz_-HVCBFVimSHQS3"
-                                            data-callback="onSubmit" data-size="invisible"></div>
+                                        <div class="form-group">
+                                            <div class="g-recaptcha" data-sitekey="{{ env('GOOGLE_RECAPTCHA_KEY') }}">
+                                            </div>
+                                            @if ($errors->has('g-recaptcha-response'))
+                                            <span class="text-danger">{{ $errors->first('g-recaptcha-response')
+                                                }}</span>
+                                            @endif
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
                                         <p id='submit' class="mt20">
                                             <input type='submit' id='send_message' value='Enviar' class="btn btn-line">
                                         </p>
-                                        <div id='mail_success' class='success'>Your message has been sent successfully.
+                                        <div id='mail_success' class='success'>
+                                            Tu mensaje ha sido enviado exitosamente.
                                         </div>
-                                        <div id='mail_fail' class='error'>Sorry, error occured this time sending your
-                                            message.</div>
+                                        <div id='mail_fail' class='error'>
+                                            Lo sentimos, esta vez ocurrió un error al enviar su mensaje.
+                                        </div>
 
                                     </div>
                                 </div>
                             </form>
 
                             <div id="success_message" class='success'>
-                                Your message has been sent successfully. Refresh this page if you want to send more
-                                messages.
+                                Tu mensaje ha sido enviado exitosamente. Actualice esta página si desea enviar más mensajes.
                             </div>
                             <div id="error_message" class='error'>
-                                Sorry there was an error sending your form.
+                                Lo sentimos, hubo un error al enviar su formulario.
                             </div>
                         </div>
 

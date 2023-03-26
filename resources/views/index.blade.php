@@ -4,13 +4,20 @@
 @section('styles')
 <style>
     .jarallax h1 {
-        color: black;
+        text-shadow: -1px -1px 1px #000, 1px 1px 1px #000, -1px 1px 1px #000, 1px -1px 1px #000;
+        color: #1171ae;
+    }
+
+    @media only screen and (max-width: 600px) {
+        .jarallax h1 {
+            font-size: 40px;
+        }
     }
 </style>
 @endsection
 @section('content')
 <section class="no-top no-bottom jarallax vertical-center"
-    style="background-image: url('{{asset('images/slider/slider002.jpg')}}');">
+    style="background-image: url('{{asset('images/slider/slider_005.jpg')}}');">
     <div class="de-overlay v-center">
         <div class="container">
             <div class="row">
@@ -53,7 +60,7 @@
                     <i class="icon_headphones"></i>
                     <div class="info-box_text">
                         <div class="info-box_title">Contáctenos</div>
-                        <div class="info-box_subtite">+208 333 9296</div>
+                        <div class="info-box_subtite">+51 941 822 861</div>
                     </div>
                 </div>
             </div>
@@ -68,26 +75,30 @@
         <div class="row align-items-center">
             <div class="col-lg-3 col-6">
                 <div class="spacer-double sm-hide"></div>
-                <img src="images/misc/1.jpg" alt="" class="img-responsive wow fadeInUp" data-wow-duration="1s">
+                <img src="{{asset('images/project/nosotros001.jpg')}}" alt="" class="img-responsive wow fadeInUp"
+                    data-wow-duration="1s">
             </div>
 
             <div class="col-lg-3 col-6">
-                <img src="images/misc/2.jpg" alt="" class="img-responsive wow fadeInUp" data-wow-duration="1.5s">
+                <img src="{{asset('images/project/nosotros002.jpg')}}" alt="" class="img-responsive wow fadeInUp"
+                    data-wow-duration="1.5s">
             </div>
 
             <div class="col-lg-6 wow fadeIn">
                 <div class="padding20">
-                    <h2 class="title mb10">The Luxury Experience<br>You'll Remember
+                    <h2 class="title mb10">JE Refrigeración SAC
                         <span class="small-border"></span>
                     </h2>
 
-                    <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia
-                        consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro
-                        quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed
-                        quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat
-                        voluptatem.</p>
+                    <p>Somos una empresa con más de {{now()->year - 2009 }} años de experiencia en el mercado
+                        agroindustrial, pesquero,
+                        lácteo, textil, panadero, laboratorios farmacéuticos.
+                        <br>
+                        Somos una empresa especialista en diseño de ingeniería optimizando recursos y brindando sistemas
+                        de ahorro energético.
+                    </p>
 
-                    <a href="02-room-2-cols.html" class="btn-line"><span>Choose Room</span>s</a>
+                    <a href="{{url('nosotros')}}" class="btn-line"><span>Conócenos</span>s</a>
 
                 </div>
             </div>
@@ -108,138 +119,32 @@
 
         <div class="row">
 
-            <div class="col-md-6">
-                <div class="box-icon">
-                    <span class="icon bg-color"><img src="images/svg/restaurant-svgrepo-com.svg" alt=""></span>
-                    <div class="text">
-                        <h3 class="style-1">Refrigeración industrial</h3>
-                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-                            laudantium, totam rem aperiam, eaque ipsa.</p>
-                    </div>
-                </div>
-            </div>
 
+            @foreach($servicios as $servicio)
             <div class="col-md-6">
                 <div class="box-icon">
-                    <span class="icon bg-color"><img src="images/svg/swimming-pool-svgrepo-com.svg" alt=""></span>
+                    <span class="icon bg-color">
+                        <a href="{{url('servicios/'.$servicio->url)}}"><img src="images/svg/restaurant-svgrepo-com.svg" alt=""></a>
+                    </span>
                     <div class="text">
-                        <h3 class="style-1">Ventilación mecánica</h3>
-                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-                            laudantium, totam rem aperiam, eaque ipsa.</p>
+                        <a href="{{url('servicios/'.$servicio->url)}}"><h3 class="style-1">{{$servicio->titulo}}</h3></a>
+                        <br><br><br>
                     </div>
                 </div>
             </div>
-
-            <div class="col-md-6">
-                <div class="box-icon">
-                    <span class="icon bg-color"><img src="images/svg/fitness-gym-svgrepo-com.svg" alt=""></span>
-                    <div class="text">
-                        <h3 class="style-1">Aire acondicionado</h3>
-                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-                            laudantium, totam rem aperiam, eaque ipsa.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-6">
-                <div class="box-icon">
-                    <span class="icon bg-color"><img src="images/svg/coffee-table-svgrepo-com.svg" alt=""></span>
-                    <div class="text">
-                        <h3 class="style-1">Estructuras metálicas</h3>
-                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-                            laudantium, totam rem aperiam, eaque ipsa.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-6">
-                <div class="box-icon">
-                    <span class="icon bg-color"><img src="images/svg/meeting-explain-svgrepo-com.svg" alt=""></span>
-                    <div class="text">
-                        <h3 class="style-1">Racks industriales</h3>
-                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-                            laudantium, totam rem aperiam, eaque ipsa.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-6">
-                <div class="box-icon">
-                    <span class="icon bg-color"><img src="images/svg/laundry-machine-svgrepo-com.svg" alt=""></span>
-                    <div class="text">
-                        <h3 class="style-1">Obras civiles</h3>
-                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-                            laudantium, totam rem aperiam, eaque ipsa.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-6">
-                <div class="box-icon">
-                    <span class="icon bg-color"><img src="images/svg/screen-tv-svgrepo-com.svg" alt=""></span>
-                    <div class="text">
-                        <h3 class="style-1">Mantenimiento</h3>
-                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-                            laudantium, totam rem aperiam, eaque ipsa.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-6">
-                <div class="box-icon">
-                    <span class="icon bg-color"><img src="images/svg/safebox-svgrepo-com.svg" alt=""></span>
-                    <div class="text">
-                        <h3 class="style-1">Repuestos y accesorios frigoríficos e eléctricos</h3>
-                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-                            laudantium, totam rem aperiam, eaque ipsa.</p>
-                    </div>
-                </div>
-            </div>
+            @endforeach
 
         </div>
 
-    </div>
-</section>  
-
-<section id="section-intro" class="pt60" data-bgcolor="#79552A">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-3 col-6">
-                <div class="spacer-double sm-hide"></div>
-                <img src="images/misc/1.jpg" alt="" class="img-responsive wow fadeInUp" data-wow-duration="1s">
-            </div>
-
-            <div class="col-lg-3 col-6">
-                <img src="images/misc/2.jpg" alt="" class="img-responsive wow fadeInUp" data-wow-duration="1.5s">
-            </div>
-
-            <div class="col-lg-6 wow fadeIn">
-                <div class="padding20">
-                    <h2 class="title mb10">The Luxury Experience<br>You'll Remember
-                        <span class="small-border"></span>
-                    </h2>
-
-                    <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur
-                        magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem
-                        ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora
-                        incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
-
-                    <a href="#" class="btn-line"><span>Book Now</span>s</a>
-
-                </div>
-            </div>
-
-            <div class="clearfix"></div>
-        </div>
     </div>
 </section>
 
 <section class="jarallax">
-    <img src="images/background/4.jpg" class="jarallax-img" alt="">
+    <img src="{{asset('images/project/obra.jpg')}}" class="jarallax-img" alt="">
     <div class="container">
         <div class="row gx-4">
             <div class="col-lg-12 text-center">
-                <h2 class="title center">Testimonials
+                <h2 class="title center">Testimonios
                     <span class="small-border"></span>
                 </h2>
             </div>
